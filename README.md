@@ -149,11 +149,16 @@ Visit `http://localhost:3000` (or the port specified by your Next.js app).
 
 ## 🖼️ Screenshots
 
-Include screenshots in `/public/screenshots/` and reference them like:
-```md
-![Home UI](https://raw.githubusercontent.com/harshkushwaha7x/QuickCart-E-Commerce/main/public/screenshots/quick-cart-ecommerce.png)
-![Seller Dashboard](https://raw.githubusercontent.com/harshkushwaha7x/QuickCart-E-Commerce/main/public/screenshots/seller-dashboard.png)
-```
+<div align="center">
+
+### 🏠 Home UI  
+<img src="https://raw.githubusercontent.com/harshkushwaha7x/QuickCart-E-Commerce/main/public/screenshots/quick-cart-ecommerce.png" width="700" />
+
+### 📊 Seller Dashboard  
+<img src="https://raw.githubusercontent.com/harshkushwaha7x/QuickCart-E-Commerce/main/public/screenshots/seller-dashboard.png" width="700" />
+
+</div>
+
 
 ---
 
