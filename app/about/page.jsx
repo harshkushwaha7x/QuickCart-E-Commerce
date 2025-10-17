@@ -2,8 +2,6 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Image from "next/image";
-import { assets } from "@/assets/assets";
 
 const About = () => {
   return (
