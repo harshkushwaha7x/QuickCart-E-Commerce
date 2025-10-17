@@ -13,66 +13,68 @@
 <p align="center">
   <a href="https://github.com/harshkushwaha7x/QuickCart-E-Commerce"><img src="https://img.shields.io/github/last-commit/harshkushwaha7x/QuickCart-E-Commerce?style=flat-square" alt="last commit"></a>
   <a href="https://github.com/harshkushwaha7x/QuickCart-E-Commerce"><img src="https://img.shields.io/github/languages/top/harshkushwaha7x/QuickCart-E-Commerce?style=flat-square" alt="languages"></a>
-  <img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="license" />
+  <a href="https://github.com/harshkushwaha7x/QuickCart-E-Commerce/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="license" /></a>
   <img src="https://img.shields.io/badge/version-1.0.0-success?style=flat-square" alt="version" />
 </p>
 
 ---
 
-## ✨ Highlights
+## ✨ Summary
 
-- Secure authentication using Clerk (or replaceable auth provider).
-- Seller & Buyer dashboards, product CRUD, and image uploads (Cloudinary).
-- Cart, checkout flow, and Stripe payment integration (webhooks supported).
-- Server-side APIs, server-rendered pages (Next.js app router), and efficient data modeling with Mongoose.
-- CI/CD friendly: Vercel for frontend, Render/Railway for backend, MongoDB Atlas for the database.
+Quick Cart provides a complete starter e‑commerce platform: user authentication, seller & buyer dashboards, product CRUD, cart & checkout with Stripe, image uploads via Cloudinary, and deploy-ready configuration for Vercel/Render. It’s perfect as a portfolio project to demonstrate full-stack, cloud, and payment integration skills.
 
 ---
 
-## 📦 Features
+## 📦 Highlights & Use Cases
 
-- 🔐 Authentication (Clerk) & role‑based pages
-- 📦 Product management (add, edit, delete, images)
-- 🛒 Shopping cart & checkout (Stripe integration)
-- 🧾 Order history & seller dashboard
-- 📱 Fully responsive UI with Tailwind CSS
-- 📸 Image uploads via Cloudinary
-- ⚡ Fast builds with Next.js and Turbopack (where applicable)
-- ✅ Basic input validation, error handling, and auth guards
+- Developer portfolio demo or starter store for small businesses.  
+- Demonstrates end‑to‑end flow: authentication → product management → checkout → order history.  
+- CI/CD friendly and easy to deploy on modern platforms (Vercel + Render).
+
+---
+
+## 🚀 Features
+
+- 🔐 Authentication (Clerk) & role‑based pages (buyer/seller)  
+- 📦 Product management (create, read, update, delete, images)  
+- 🛒 Shopping cart & checkout using Stripe (session + webhook handling)  
+- 🧾 Order history & seller dashboard with sales overview  
+- 📱 Mobile‑first responsive UI with Tailwind CSS  
+- 📸 Image uploads via Cloudinary + CDN delivery  
+- ⚡ Fast builds with Next.js and modern tooling  
+- ✅ Input validation, auth guards, and basic error handling
 
 ---
 
 ## 🧩 Tech Stack
 
-**Frontend:** Next.js, React, Tailwind CSS, Vite (dev tooling)  
-**Backend:** Node.js, Express (or Next API), Inngest (background jobs), Mongoose (MongoDB)  
+**Frontend:** Next.js, React, Tailwind CSS  
+**Backend:** Node.js, Express / Next API routes, Inngest (background jobs)  
 **Database:** MongoDB (Atlas recommended)  
-**Media:** Cloudinary (image storage & CDN)  
-**Payments:** Stripe (payment processing & webhooks)  
-**Auth:** Clerk (replaceable with NextAuth/Auth0)  
-**DevOps:** Vercel, Render/Railway, Docker (optional)
+**Media:** Cloudinary  
+**Payments:** Stripe (webhooks)  
+**Auth:** Clerk (can swap with NextAuth/Auth0)  
+**DevOps:** Vercel (frontend), Render/Railway (backend), Docker (optional)
 
 ---
 
-## 📁 Project Structure
+## 📁 Project Structure (high-level)
 
 ```
-/app (Next.js app router)
-/components       # Reusable UI components
-/config           # Config and helper utilities
-/lib              # Utility functions
-/models           # Mongoose models
-/pages/api        # Serverless / API routes (if used)
-/public/screenshots
-/server           # Optional: express server, jobs, webhooks
-/.env.example
+/app                     # Next.js app router (UI & pages)
+/components              # Reusable UI components
+/config                  # Config & helpers (db, cloudinary, stripe)
+/lib                     # Utility functions
+/models                  # Mongoose models
+/pages/api               # API routes / server functions
+/public/screenshots      # Demo screenshots referenced in README
+/server                  # Optional express server / background jobs
+/.env.example            # Example env variables
 ```
 
 ---
 
-## 🚀 Quick Start (Local)
-
-> This assumes the repository name `QuickCart-E-Commerce` and the project uses a separate `client` (Next.js) and `server` or unified Next app. Adjust commands to your repo layout.
+## 🛠️ Quick Start (Local)
 
 1. **Clone & install**
 ```bash
@@ -81,7 +83,7 @@ cd QuickCart-E-Commerce
 npm install
 ```
 
-2. **Create `.env`** — copy `.env.example` and provide real values:
+2. **Environment** — copy `.env.example` to `.env` and add your keys:
 ```env
 MONGO_URI=your_mongodb_connection_string
 CLOUDINARY_CLOUD_NAME=your_cloud_name
@@ -95,33 +97,29 @@ JWT_SECRET=your_jwt_secret
 NEXT_PUBLIC_API_BASE_URL=http://localhost:3000
 ```
 
-3. **Run locally**
+3. **Run**
 ```bash
 npm run dev
-# or, if client/server are separate:
+# or if split into client/server:
 # cd client && npm run dev
 # cd server && npm run dev
 ```
 
-4. **Open the app**
-Visit `http://localhost:3000` (or the port specified by your Next.js app).
+4. **Open**: http://localhost:3000
 
 ---
 
 ## 🔌 API Endpoints (examples)
 
-> Replace `/api` with your configured API root if different.
-
 **Auth & Users**
-- `POST /api/auth/register` — register user (handled by Clerk)
-- `GET /api/profile` — get user profile
+- `GET /api/profile` — user profile (auth required)
 
 **Products**
-- `GET /api/products` — list products
-- `GET /api/products/:id` — product details
-- `POST /api/products` — create product (seller)
-- `PUT /api/products/:id` — update product (seller)
-- `DELETE /api/products/:id` — delete product (seller)
+- `GET /api/products`  
+- `GET /api/products/:id`  
+- `POST /api/products` (seller)  
+- `PUT /api/products/:id` (seller)  
+- `DELETE /api/products/:id` (seller)  
 
 **Cart & Orders**
 - `POST /api/cart` — add item to cart
@@ -131,42 +129,25 @@ Visit `http://localhost:3000` (or the port specified by your Next.js app).
 
 ---
 
-## ☁️ Deployment
-
-**Frontend (Vercel)**:
-- Connect the GitHub repository to Vercel, set environment variables, and deploy.
-
-**Backend (Render / Railway / Render)**:
-- Deploy the backend service and set environment variables for DB, Stripe, and Cloudinary.
-
-**Database**:
-- Use MongoDB Atlas for production-grade managed database.
-
-**Stripe Webhooks**:
-- Configure webhook endpoint in your Stripe dashboard and secure it using the webhook secret in your server.
-
----
-
 ## 🖼️ Screenshots
 
 <div align="center">
 
 ### 🏠 Home UI  
-<img src="https://raw.githubusercontent.com/harshkushwaha7x/QuickCart-E-Commerce/main/public/screenshots/quick-cart-ecommerce.png" width="700" />
+<img src="https://raw.githubusercontent.com/harshkushwaha7x/QuickCart-E-Commerce/main/public/screenshots/quick-cart-ecommerce.png" alt="Quick Cart - Home" width="700" />
 
 ### 📊 Seller Dashboard  
-<img src="https://raw.githubusercontent.com/harshkushwaha7x/QuickCart-E-Commerce/main/public/screenshots/seller-dashboard.png" width="700" />
+<img src="https://raw.githubusercontent.com/harshkushwaha7x/QuickCart-E-Commerce/main/public/screenshots/seller-dashboard.png" alt="Quick Cart - Seller Dashboard" width="700" />
 
 </div>
-
 
 ---
 
 ## ✅ Testing & Quality
 
-- Use ESLint + Prettier (config recommended)
-- Add unit tests for critical APIs and components (Jest/React Testing Library)
-- Monitor errors with Sentry or an equivalent service (optional)
+- Use ESLint + Prettier for consistent formatting.  
+- Add unit and integration tests (Jest, React Testing Library).  
+- Consider runtime monitoring with Sentry for production.
 
 ---
 
@@ -174,18 +155,18 @@ Visit `http://localhost:3000` (or the port specified by your Next.js app).
 
 Contributions are welcome — please follow this flow:
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feat/awesome`
-3. Commit changes: `git commit -m "Add awesome feature"`
-4. Push and open a Pull Request
+1. Fork repository.
+2. Create a feature branch: `git checkout -b feat/awesome`.
+3. Commit & push: `git commit -m "feat: add ..." && git push`.
+4. Open a Pull Request with a clear description and screenshots for UI changes.
 
-Please keep PRs small and include descriptive commit messages and screenshots for UI changes.
+Include small, focused PRs and keep the README updated for any new features.
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License** — see [LICENSE](https://github.com/harshkushwaha7x/QuickCart-E-Commerce/blob/main/LICENSE) for details.
+This project is licensed under the **MIT License** — see [LICENSE](https://github.com/harshkushwaha7x/QuickCart-E-Commerce/blob/main/LICENSE).
 
 ---
 
@@ -193,12 +174,12 @@ This project is licensed under the **MIT License** — see [LICENSE](https://git
 
 **Harsh Kushwaha** — Developer & Maintainer  
 - Portfolio: https://harshkushwaha7x.github.io/Portfolio  
-- GitHub: https://github.com/harshkushwaha7x  
+- GitHub: https://github.com/harshkushwaha7x/QuickCart-E-Commerce  
 - LinkedIn: https://www.linkedin.com/in/harshkushwaha7x/  
 - Email: harshkushwaha4151@gmail.com
 
 ---
 
 <div align="center">
-Made by **Harsh Kushwaha**
+Made by <b>Harsh Kushwaha</b>
 </div>
